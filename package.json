@@ -1,0 +1,17 @@
+{
+  "name": "maratona-discover",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "author": "Marcos Adriano <marcosadriano740@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
