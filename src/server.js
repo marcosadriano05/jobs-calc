@@ -8,6 +8,9 @@ const server = express();
 // O ejs permite inserir JS no html
 server.set('view engine', 'ejs');
 
+// Permitw usar os dados enviados nos corpos das requisições
+server.use(express.urlencoded({ extended: true }));
+
 // Criando rotas para os arquivos estáticos que estão na pasta public
 server.use(express.static('public'));
 
