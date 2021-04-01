@@ -85,7 +85,11 @@
               </div>
               <div class="deadline column">
                 <span>Prazo</span>
-                <p>3 dias para a entrega</p>
+                <% if(job.remainingDays <= 0) { %>
+                  <p>Prazo encerrado</p>
+                <% } else { %>
+                  <p><%= job.remainingDays %> dias para a entrega</p>
+                <% } %> 
               </div>
               <div class="amount column">
                 <span>Valor</span>
