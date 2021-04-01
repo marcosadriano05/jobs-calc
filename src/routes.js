@@ -18,6 +18,32 @@ const Profile = {
   controllers: {
     profilePage(req, res) {
       return res.status(200).render(views + 'profile', { profile: Profile.data });
+    },
+
+    updateProfile(req, res) {
+      const data = req.body;
+
+      // Número de semanas no ano
+      const weeksPerYear = 52;
+
+      // Remover semanas de férias do ano e saber as semans de trabalho por mês
+      const weeksPerMonth = (weeksPerYear - data["vacation-per-year"]) / 12;
+
+      // Total de horas de trabalho na semana
+      const weekTotalHours = data["hours-per-day"] * data["days-per-week"];
+
+      // Horas trabalhadas no mês
+      const monthlyTotalHours = weekTotalHours * weeksPerMonth;
+
+      const valueHour = data["monthly-budget"] / monthlyTotalHours;
+
+      Profile.data = {
+        ...Profile.data,
+        ...req.body,
+        "value-hour": valueHour
+      }
+
+      return res.status(200).redirect('/profile');
     }
   }
 };
@@ -61,7 +87,7 @@ const Job = {
 
     addJob(req, res) {
       // { name: 'Maratona Discover', 'daily-hours': '4', 'total-hours': '20' }
-      const jobId = Job.data[Job.data.length - 1]?.id + 1 || 0; // Definindo Id para novo Job
+      const jobId = Job.data[Job.data.length - 1]?.id + 1 || 1; // Definindo Id para novo Job
     
       // 48 * 5 * 5 = 1200h no ano
     
@@ -80,6 +106,10 @@ const Job = {
       const jobId = req.params.id;
     
       const job = Job.data.find(job => job.id == jobId);
+
+      if(!job) {
+        return res.send("Job not found!");
+      }
     
       const updatedJob = Job.services.update(job);
     
@@ -96,6 +126,14 @@ const Job = {
     
       Job.data[Job.data.indexOf(job)] = jobEdited;
     
+      return res.status(200).redirect('/');
+    },
+
+    deleteJob(req, res) {
+      const jobId = req.params.id;
+
+      Job.data = Job.data.filter(job => Number(jobId) !== job.id);
+
       return res.status(200).redirect('/');
     }
   },
@@ -156,6 +194,10 @@ routes.get('/job/:id', Job.controllers.editJobPage);
 
 routes.post('/job/:id', Job.controllers.editJob);
 
+routes.post('/job/delete/:id', Job.controllers.deleteJob);
+
 routes.get('/profile', Profile.controllers.profilePage);
+
+routes.post('/profile', Profile.controllers.updateProfile);
 
 module.exports = routes;
