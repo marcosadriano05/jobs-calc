@@ -32,7 +32,11 @@
           <img id="logo" src="/images/logo.svg" alt="Logo" />
           <span id="notification">
             <img src="/images/alert-octagon.svg" alt="Alerta" />
-            Você tem 2 horas livres no seu dia
+            <% if(freeTime < 0) { %>
+              Você ultrapassou <%= Math.abs(freeTime) %> horas da sua meta diária
+            <% } else { %>
+              Você tem <%= freeTime %> horas livres no seu dia
+            <% } %> 
           </span>
           <a href="/profile" id="avatar-profile">
             <p><%= profile.name %> <span>Ver perfil</span></p>
@@ -49,15 +53,15 @@
 
           <div class="info">
             <div class="total">
-              <strong>12</strong>
+              <strong><%= projectsInfo.total %></strong>
               Projetos ao total
             </div>
             <div class="in-progress">
-              <strong>7</strong>
+              <strong><%= projectsInfo.progress %></strong>
               Em andamento
             </div>
             <div class="finished">
-              <strong>4</strong>
+              <strong><%= projectsInfo.done %></strong>
               Encerrados
             </div>
           </div>

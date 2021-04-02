@@ -4,15 +4,6 @@ const Job = require('../models/Job');
 const JobUtils = require('../utils/JobUtils')
 
 module.exports = {
-  index(req, res) {
-    const jobs = Job.get();
-    const updatedJobs = jobs.map(job => {
-      return JobUtils.update(job);
-    });
-  
-    return res.status(200).render('index', { jobs: updatedJobs, profile: Profile.get() });
-  },
-
   addJobPage(req, res) {
     return res.status(200).render('job');
   },
@@ -27,7 +18,7 @@ module.exports = {
       id: jobId + 1,
       created_at: Date.now()
     };
-  
+    
     Job.update([...jobs, jobAdded]);
   
     return res.status(200).redirect('/');
@@ -68,11 +59,7 @@ module.exports = {
   deleteJob(req, res) {
     const jobId = req.params.id;
 
-    let jobs = Job.get();
-
-    jobs = jobs.filter(job => Number(jobId) !== job.id);
-
-    Job.update(jobs);
+    Job.delete(jobId);
 
     return res.status(200).redirect('/');
   }
