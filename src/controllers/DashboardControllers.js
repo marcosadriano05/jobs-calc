@@ -14,19 +14,11 @@ module.exports = {
       progress: 0,
       totalHours: 0
     };
-
-    let updatedJobs = [];
     
-    for (let i = 0; i < jobs.length; i++) {
-      updatedJobs[i] = await JobUtils.update(jobs[i]);
-    }
-    /*
-    const updatedJobs = jobs.map(async job => {
-      const updatedJob = await JobUtils.update(job);
-      return updatedJob;
+    const updatedJobs = jobs.map(job => {
+      return JobUtils.update(job, profile);
     });
-    */
-
+    
     updatedJobs.forEach(job => {
       projectsInfo[job.status] += 1;
       job.status === "progress" && (projectsInfo.totalHours += Number(job["daily-hours"]));

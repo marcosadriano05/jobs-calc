@@ -1,5 +1,3 @@
-const Profile = require('../models/Profile');
-
 function daysToComplete(job) {
   // Total de dias para realizar o trabalho
   const remainigDays = job["total-hours"] / job["daily-hours"];
@@ -25,8 +23,7 @@ function daysToComplete(job) {
   return leftDays;
 }
 
-async function update(job) {
-  const profile = await Profile.get();
+function update(job, profile) {
   // Dias que restam para a conclusão do job
   const remainingDays = daysToComplete(job);
 

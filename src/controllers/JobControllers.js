@@ -28,6 +28,7 @@ module.exports = {
     const jobId = req.params.id;
 
     const jobs = Job.get();
+    const profile = await Profile.get()
 
     const job = jobs.find(job => job.id == jobId);
 
@@ -35,7 +36,7 @@ module.exports = {
       return res.send("Job not found!");
     }
   
-    const updatedJob = await JobUtils.update(job);
+    const updatedJob = JobUtils.update(job, profile);
   
     return res.status(200).render('job-edit', { job: updatedJob });
   },
