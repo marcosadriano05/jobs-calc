@@ -25,8 +25,8 @@ function daysToComplete(job) {
   return leftDays;
 }
 
-function update(job) {
-  const profile = Profile.get();
+async function update(job) {
+  const profile = await Profile.get();
   // Dias que restam para a conclusão do job
   const remainingDays = daysToComplete(job);
 

@@ -24,7 +24,7 @@ module.exports = {
     return res.status(200).redirect('/');
   },
 
-  editJobPage(req, res) {
+  async editJobPage(req, res) {
     const jobId = req.params.id;
 
     const jobs = Job.get();
@@ -35,7 +35,7 @@ module.exports = {
       return res.send("Job not found!");
     }
   
-    const updatedJob = JobUtils.update(job);
+    const updatedJob = await JobUtils.update(job);
   
     return res.status(200).render('job-edit', { job: updatedJob });
   },
