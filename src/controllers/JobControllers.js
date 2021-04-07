@@ -19,7 +19,7 @@ module.exports = {
       created_at: Date.now()
     };
     
-    Job.update([...jobs, jobAdded]);
+    Job.create(jobAdded);
   
     return res.status(200).redirect('/');
   },
@@ -47,11 +47,9 @@ module.exports = {
   
     const job = jobs.find(job => job.id == jobId);
   
-    jobEdited = { ...job, ...req.body };
+    updatedJob = { ...job, ...req.body };
 
-    jobs[jobs.indexOf(job)] = jobEdited;
-
-    Job.update(jobs);
+    Job.update(updatedJob, jobId);
   
     return res.status(200).redirect('/');
   },

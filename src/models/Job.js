@@ -26,8 +26,17 @@ module.exports = {
     return data;
   },
 
-  update(newData) {
-    data = newData;
+  create(newData) {
+    data.push(newData);
+  },
+
+  update(updatedJob, jobId) {
+    data = data.map(job => {
+      if (job.id === Number(jobId)) {
+        return updatedJob;
+      }
+      return job;
+    })
   },
 
   delete(id) {
