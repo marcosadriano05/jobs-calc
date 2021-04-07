@@ -8,18 +8,13 @@ module.exports = {
     return res.status(200).render('job');
   },
 
-  addJob(req, res) {
-    const jobs = Job.get();
-    // Definindo Id para novo Job
-    const jobId = jobs[jobs.length - 1]?.id || 0;
-  
+  async addJob(req, res) {  
     const jobAdded = {
       ...req.body,
-      id: jobId + 1,
       created_at: Date.now()
     };
     
-    Job.create(jobAdded);
+    await Job.create(jobAdded);
   
     return res.status(200).redirect('/');
   },
@@ -27,7 +22,7 @@ module.exports = {
   async editJobPage(req, res) {
     const jobId = req.params.id;
 
-    const jobs = Job.get();
+    const jobs = await Job.get();
     const profile = await Profile.get()
 
     const job = jobs.find(job => job.id == jobId);
@@ -41,10 +36,10 @@ module.exports = {
     return res.status(200).render('job-edit', { job: updatedJob });
   },
 
-  editJob(req, res) {
+  async editJob(req, res) {
     const jobId = req.params.id;
 
-    const jobs = Job.get();
+    const jobs = await Job.get();
   
     const job = jobs.find(job => job.id == jobId);
   
@@ -55,10 +50,10 @@ module.exports = {
     return res.status(200).redirect('/');
   },
 
-  deleteJob(req, res) {
+  async deleteJob(req, res) {
     const jobId = req.params.id;
 
-    Job.delete(jobId);
+    await Job.delete(jobId);
 
     return res.status(200).redirect('/');
   }
