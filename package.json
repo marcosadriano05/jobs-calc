@@ -5,7 +5,8 @@
   "author": "Marcos Adriano <marcosadriano740@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "init-db": "node src/db/init.js"
   },
   "dependencies": {
     "ejs": "^3.1.6",
