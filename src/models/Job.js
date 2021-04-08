@@ -35,13 +35,17 @@ module.exports = {
     await db.close();
   },
 
-  update(updatedJob, jobId) {
-    data = data.map(job => {
-      if (job.id === Number(jobId)) {
-        return updatedJob;
-      }
-      return job;
-    })
+  async update(updatedJob, jobId) {
+    const db = await Database();
+
+    await db.run(`UPDATE jobs SET 
+      name = "${updatedJob.name}",
+      daily_hours = ${updatedJob["daily-hours"]},
+      total_hours = ${updatedJob["total-hours"]}
+      WHERE id = ${jobId}
+    `);
+
+    await db.close();
   },
 
   async delete(id) {

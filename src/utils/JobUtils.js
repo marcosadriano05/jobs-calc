@@ -1,16 +1,16 @@
 function daysToComplete(job) {
   // Total de dias para realizar o trabalho
-  const remainigDays = job["total-hours"] / job["daily-hours"];
-
+  const remainigDays = (job["total-hours"] / job["daily-hours"]).toFixed();
+  
   // Data da criação do Job
   const createdDate = new Date(job.created_at);
-
+  
   // Dia do vencimento do Job
   const dueDay = createdDate.getDate() + Number(remainigDays);
-
+  
   // Data do vencimento do Job (em milisegundos)
   const dueDate = createdDate.setDate(dueDay);
-
+  
   // Diferença entre a data de vencimento e a data atual
   const timeDiff = dueDate - Date.now();
 
@@ -26,9 +26,9 @@ function daysToComplete(job) {
 function update(job, profile) {
   // Dias que restam para a conclusão do job
   const remainingDays = daysToComplete(job);
-
+  
   // Atualizando status do job
-  const status = remainingDays <= 0 ? "done" : "progress";
+  const status = remainingDays < 0 ? "done" : "progress";
 
   // Custo do projeto
   const budget = profile["value-hour"] * job["total-hours"];

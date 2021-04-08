@@ -38,12 +38,8 @@ module.exports = {
 
   async editJob(req, res) {
     const jobId = req.params.id;
-
-    const jobs = await Job.get();
   
-    const job = jobs.find(job => job.id == jobId);
-  
-    updatedJob = { ...job, ...req.body };
+    updatedJob = { ...req.body };
 
     Job.update(updatedJob, jobId);
   
