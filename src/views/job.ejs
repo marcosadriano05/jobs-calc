@@ -36,9 +36,14 @@
 
             <div class="input-wrapper">
               <label for="name">Nome do Job</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text"
+                id="name" 
+                name="name" 
+                required
+                <%= freetime <= 0 && "disabled"%>
+              />
             </div>
-
+ 
             <div class="input-group">
               <div class="input-wrapper">
                 <label for="daily-hours">Quantas horas <br/>
@@ -48,7 +53,9 @@
                   step="0.1" 
                   id="daily-hours" 
                   name="daily-hours"
-                  required />
+                  required 
+                  <%= freetime <= 0 && "disabled"%>
+                />
               </div>
 
               <div class="input-wrapper">
@@ -58,7 +65,9 @@
                   type="number"
                   id="total-hours" 
                   name="total-hours"
-                  required />
+                  required 
+                  <%= freetime <= 0 && "disabled"%>  
+                />
               </div>
             </div>
           </fieldset>
@@ -76,7 +85,9 @@
             class="button green" 
             form="form-job" 
             type="submit" 
-            title="Salvar Dados">Salvar</button>
+            title="Salvar Dados"
+            <%= freetime <= 0 && "disabled"%>
+          >Salvar</button>
           <a 
             href="/" 
             class="button gray">

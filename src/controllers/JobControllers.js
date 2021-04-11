@@ -4,8 +4,21 @@ const Job = require('../models/Job');
 const JobUtils = require('../utils/JobUtils')
 
 module.exports = {
-  addJobPage(req, res) {
-    return res.status(200).render('job');
+  async addJobPage(req, res) {
+    const profile = await Profile.get();
+    const jobs = await Job.get();
+
+    const updatedJobs = jobs.map(job => {
+      return JobUtils.update(job, profile);
+    });
+
+    const freetime = profile["hours-per-day"] - updatedJobs
+      .filter(job => job.status === "progress")
+      .reduce((sum, current) => {
+      return sum + current["daily-hours"];
+    }, 0);
+
+    return res.status(200).render('job', { freetime });
   },
 
   async addJob(req, res) {  
