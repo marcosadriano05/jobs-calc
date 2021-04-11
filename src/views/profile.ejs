@@ -47,7 +47,7 @@
             <div class="input-group">
               <div class="input-wrapper">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="name" value="<%= profile.name %>" />
+                <input type="text" id="name" name="name" value="<%= profile.name %>" required />
               </div>
 
               <div class="input-wrapper">
@@ -57,7 +57,8 @@
                 type="url" 
                 id="avatar" 
                 name="avatar" 
-                value="<%= profile.avatar %>" />
+                value="<%= profile.avatar %>"
+                required />
               </div>
             </div>
           </fieldset>
@@ -75,7 +76,8 @@
                   id="monthly-budget" 
                   name="monthly-budget" 
                   placeholder="R$"
-                  value="<%= profile["monthly-budget"] %>" />
+                  value="<%= profile["monthly-budget"] %>"
+                  required />
               </div>
 
               <div class="input-wrapper">
@@ -85,7 +87,8 @@
                   type="number"
                   id="hours-per-day" 
                   name="hours-per-day"
-                  value="<%= profile["hours-per-day"] %>" />
+                  value="<%= profile["hours-per-day"] %>"
+                  required />
               </div>
             </div>
 
@@ -97,7 +100,8 @@
                   type="number"
                   id="days-per-week" 
                   name="days-per-week"
-                  value="<%= profile["days-per-week"] %>" />
+                  value="<%= profile["days-per-week"] %>"
+                  required />
               </div>
 
               <div class="input-wrapper">
@@ -107,7 +111,8 @@
                   type="number" 
                   id="vacation-per-year" 
                   name="vacation-per-year"
-                  value="<%= profile["vacation-per-year"] %>" />
+                  value="<%= profile["vacation-per-year"] %>"
+                  required />
               </div>
             </div>
           </fieldset>

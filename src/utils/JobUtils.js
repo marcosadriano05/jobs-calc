@@ -18,7 +18,7 @@ function daysToComplete(job) {
   const dayInMs = 1000 * 60 * 60 * 24;
 
   // Dias restantes para a conclusão do Job
-  const leftDays = Math.floor(timeDiff / dayInMs);
+  const leftDays = Math.ceil(timeDiff / dayInMs);
 
   return leftDays;
 }
