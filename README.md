@@ -33,6 +33,7 @@ Novas features adicionadas além do projeto inicial.
 
 - Validação dos inputs
 - Desbilitar adição de novo job se o usuário ultapassar tempo disponível
+- Dark theme
 
 ## 🚀 Tecnologias
 
