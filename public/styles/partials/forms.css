@@ -33,7 +33,7 @@ label {
 
   font-family: IBM Plex Sans;
   font-weight: 500;
-  color: #787880;
+  color: var(--color-card-title);
 
   margin-bottom: 1rem;
 }
@@ -51,9 +51,9 @@ input {
 
   width: 100%;
 
-  color: var(--color-card-title);
+  color: #5A5A66;
 }
 
-::placeholder {
-  color: #BFBFCC;
+input::placeholder {
+  color: #5A5A66;
 }

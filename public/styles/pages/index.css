@@ -65,7 +65,7 @@
   width: 4rem; /* 64px of 16px root*/
   height: 4rem; /* 64px of 16px root*/
   border-radius: 50%;
-  border: 0.156rem solid #F1972C; /* 2.5px of 16px root*/
+  border: 0.156rem solid var(--color-secondary); /* 2.5px of 16px root*/
 }
 
 /* 
@@ -225,6 +225,32 @@ main {
 .column.actions button img {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.label-theme {
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.label-theme:hover {
+  background: var(--color-secondary-hover);
+}
+
+#icon-theme {
+  width: 2rem;
+  filter: invert(1);
+  transition: all 0.2s;
+}
+
+#icon-theme:hover {
+  filter: invert(0);
 }
 
 @media(max-width:1390px) {

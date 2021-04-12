@@ -38,6 +38,13 @@
               Você tem <%= freeTime %> horas livres no seu dia
             <% } %> 
           </span>
+          <div>
+            <label class="sr-only" for="theme">Trocar tema</label>
+            <label class="label-theme" for="theme">
+              <img id="icon-theme" src="/images/moon-solid.svg">
+            </label>
+            <input style="display: none" id="theme" type="checkbox" name="theme"></input>
+          </div>
           <a href="/profile" id="avatar-profile">
             <p><%= profile.name %> <span>Ver perfil</span></p>
             <img
