@@ -83,6 +83,20 @@ Se estiver usando o [NPM](https://www.npmjs.com/) como gerenciador de pacotes:
 npm run init-db
 ```
 
+Depois, basta usar o comando abaixo para iniciar o servidor na porta 8080:
+
+Se estiver usando o [Yarn](https://yarnpkg.com/) como gerenciador de pacotes:
+
+```
+yarn dev
+```
+
+Se estiver usando o [NPM](https://www.npmjs.com/) como gerenciador de pacotes:
+
+```
+npm run dev
+```
+
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/s4fytPFbDiSkv4GPSfKaLE/Jobs-Planning). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
