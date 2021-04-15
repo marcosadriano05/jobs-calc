@@ -54,9 +54,10 @@
                   step="0.1" 
                   id="daily-hours" 
                   name="daily-hours"
-                  required 
+                  required
+                  data-daily-hours="<%= freetime %>"
                   <%= freetime <= 0 && "disabled"%>
-                /> 
+                />
               </div>
 
               <div class="input-wrapper">
@@ -71,8 +72,9 @@
                 />
               </div>
             </div>
+            <span class="message">Você tem <%= freetime %>h livres</span>
           </fieldset>
-    
+  
         </form>
       </main>
       <aside class="card">
@@ -83,6 +85,7 @@
         </p>
         <div class="button-group">
           <button 
+            id="submit-job"
             class="button green" 
             form="form-job" 
             type="submit" 
