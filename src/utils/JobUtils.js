@@ -41,7 +41,16 @@ function update(job, profile) {
   };
 }
 
+function freeTime(profile, jobs) {
+  return profile["hours-per-day"] - jobs
+  .filter(job => job.status === "progress")
+  .reduce((sum, current) => {
+  return sum + current["daily-hours"];
+}, 0)
+}
+
 module.exports = {
   daysToComplete,
-  update
+  update,
+  freeTime
 }

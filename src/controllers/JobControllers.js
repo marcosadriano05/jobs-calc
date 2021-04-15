@@ -12,11 +12,7 @@ module.exports = {
       return JobUtils.update(job, profile);
     });
 
-    const freetime = profile["hours-per-day"] - updatedJobs
-      .filter(job => job.status === "progress")
-      .reduce((sum, current) => {
-      return sum + current["daily-hours"];
-    }, 0);
+    const freetime = JobUtils.freeTime(profile, updatedJobs);
 
     return res.status(200).render('job', { freetime });
   },
