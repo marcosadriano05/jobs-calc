@@ -55,7 +55,7 @@
   /**/
   --color-card-background: #131313;
   --color-card-title: #e4e4e4;
-  --color-card-label: #cfcfcf;
+  --color-card-label: #494949;
   --color-card-content: #787880;
   --color-card-background: #ccc;
   /**/
@@ -70,7 +70,7 @@
   --color-badge-done-background:#FAECEB;
   --color-badge-done-border: #d40e00;
   /**/
-  --color-header-inner-title: var(--color-card-label);
+  --color-header-inner-title: #a1a1a1;
 }
 
 /* user-agent font-size is 16px, let's make it responsive */
