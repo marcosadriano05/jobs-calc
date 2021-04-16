@@ -86,3 +86,7 @@ button.button {
 .actions .button + button {
   margin-left: 0.5rem;
 }
+
+.button:disabled {
+  opacity: 0.7;
+}

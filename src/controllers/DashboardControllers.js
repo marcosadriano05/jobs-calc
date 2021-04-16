@@ -28,7 +28,7 @@ module.exports = {
       jobs: updatedJobs, 
       profile, 
       projectsInfo,
-      freeTime: profile["hours-per-day"] - projectsInfo.totalHours
+      freeTime: JobUtils.getFreeTime(profile, updatedJobs)
     });
   }
 }

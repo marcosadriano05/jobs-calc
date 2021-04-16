@@ -68,10 +68,10 @@ input::placeholder {
   text-align: center;
   bottom: -10px;
   padding: 2px 5px;
-  border: 1px solid #ffa500;
+  border: 1px solid #ff8800;
   border-radius: 5px;
-  color: #ffa500;
-  background: #ffe7b9;
+  color: #ff8800;
+  background: #fff8ea;
 }
 
 .message.alert {

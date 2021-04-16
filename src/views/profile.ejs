@@ -78,6 +78,7 @@
                   name="monthly-budget" 
                   placeholder="R$"
                   value="<%= profile["monthly-budget"] %>"
+                  min="0"
                   required />
               </div>
 
@@ -89,6 +90,7 @@
                   id="hours-per-day" 
                   name="hours-per-day"
                   value="<%= profile["hours-per-day"] %>"
+                  min="1"
                   required />
               </div>
             </div>
@@ -102,6 +104,7 @@
                   id="days-per-week" 
                   name="days-per-week"
                   value="<%= profile["days-per-week"] %>"
+                  min="1"
                   required />
               </div>
 
@@ -113,6 +116,7 @@
                   id="vacation-per-year" 
                   name="vacation-per-year"
                   value="<%= profile["vacation-per-year"] %>"
+                  min="0"
                   required />
               </div>
             </div>

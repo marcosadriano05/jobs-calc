@@ -12,7 +12,7 @@ module.exports = {
       return JobUtils.update(job, profile);
     });
 
-    const freetime = JobUtils.freeTime(profile, updatedJobs);
+    const freetime = JobUtils.getFreeTime(profile, updatedJobs);
 
     return res.status(200).render('job', { freetime });
   },
@@ -41,8 +41,14 @@ module.exports = {
     }
   
     const updatedJob = JobUtils.update(job, profile);
+
+    const updatedJobs = jobs.map(job => {
+      return JobUtils.update(job, profile);
+    });
+
+    const freetime = JobUtils.getFreeTime(profile, updatedJobs);
   
-    return res.status(200).render('job-edit', { job: updatedJob });
+    return res.status(200).render('job-edit', { job: updatedJob, freetime });
   },
 
   async editJob(req, res) {

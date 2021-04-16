@@ -56,7 +56,10 @@
                   step="0.1" 
                   id="daily-hours" 
                   name="daily-hours"
+                  data-freetime="<%= freetime %>"
                   value="<%= job["daily-hours"] %>"
+                  min="1"
+                  max="24"
                   required
                 />
               </div>
@@ -68,11 +71,13 @@
                   type="number"
                   id="total-hours" 
                   name="total-hours"
-                  value="<%= job["total-hours"] %>" 
+                  value="<%= job["total-hours"] %>"
+                  min="1" 
                   required
                 />
               </div>
             </div>
+            <span class="message">Você tem <%= freetime %>h livres</span>
           </fieldset>
     
         </form>
@@ -84,6 +89,7 @@
         </p>
         <div class="button-group">
           <button 
+            id="submit-job"
             class="button green" 
             form="form-job" 
             type="submit" 

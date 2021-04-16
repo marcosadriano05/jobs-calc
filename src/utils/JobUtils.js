@@ -41,7 +41,7 @@ function update(job, profile) {
   };
 }
 
-function freeTime(profile, jobs) {
+function getFreeTime(profile, jobs) {
   return profile["hours-per-day"] - jobs
   .filter(job => job.status === "progress")
   .reduce((sum, current) => {
@@ -52,5 +52,5 @@ function freeTime(profile, jobs) {
 module.exports = {
   daysToComplete,
   update,
-  freeTime
+  getFreeTime
 }
