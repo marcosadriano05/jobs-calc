@@ -32,7 +32,7 @@ O JobsCalc é uma aplicação de estimativa de cálculo para projetos freelancer
 Novas features adicionadas além do projeto inicial.
 
 - Validação dos inputs
-- Desbilitar adição de novo job se o usuário ultapassar tempo disponível
+- Desabilitar adição de novo job se o usuário ultapassar tempo disponível
 - Dark theme
 - Mostrar se o usuário ultrapassou ou não as horas livres na página de adicionar e editar job
 
